@@ -2,11 +2,15 @@ import 'package:flutter/material.dart';
 
 class PrimaryBtn extends StatelessWidget {
   String label;
+  String image;
+  Color? textColor;
   Color? bgBackground;
   VoidCallback onTap;
   PrimaryBtn(
       {required this.label,
       required this.onTap,
+      this.textColor = Colors.white,
+      this.image = "",
       this.bgBackground = Colors.blue});
 
   @override
@@ -21,13 +25,20 @@ class PrimaryBtn extends StatelessWidget {
             borderRadius: BorderRadius.circular(30),
           ),
           child: Center(
-            child: Text(
-              label,
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 20,
-                fontWeight: FontWeight.bold,
-              ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                if (image != "") Image.asset(image, height: 18, width: 18),
+                if (image != "") SizedBox(width: 10),
+                Text(
+                  label,
+                  style: TextStyle(
+                    color: textColor,
+                    fontSize: 16,
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
+              ],
             ),
           )),
     );
