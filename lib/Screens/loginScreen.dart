@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:loginpage/Screens/registerAccount.dart';
 import 'package:loginpage/Screens/splash.dart';
 import 'package:loginpage/Utils/color_utils.dart';
 import 'package:loginpage/Widgets/primaryBtn.dart';
@@ -33,11 +34,19 @@ class _loginScreenState extends State<loginScreen> {
                   "Don't have an account? ",
                   style: TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
                 ),
-                Text(
-                  "Create account",
-                  style: TextStyle(
-                      fontWeight: FontWeight.w500,
-                      color: ColorUtils.primaryColor),
+                GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => RegisterScreen()));
+                  },
+                  child: Text(
+                    "Create account",
+                    style: TextStyle(
+                        fontWeight: FontWeight.w500,
+                        color: ColorUtils.primaryColor),
+                  ),
                 ),
               ],
             ),
