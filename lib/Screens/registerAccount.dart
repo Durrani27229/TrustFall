@@ -3,6 +3,7 @@ import 'package:loginpage/Screens/loginScreen.dart';
 import 'package:loginpage/Screens/splash.dart';
 import 'package:loginpage/Utils/color_utils.dart';
 import 'package:loginpage/Widgets/InputField.dart';
+import 'package:loginpage/Widgets/checkBox.dart';
 import 'package:loginpage/Widgets/primaryBtn.dart';
 
 class RegisterScreen extends StatefulWidget {
@@ -95,63 +96,53 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   ],
                 ),
 
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.start,
+                Text(
+                  "Contain at least 1 uppercase letter, 8 characters, 1 number",
+                  textAlign: TextAlign.start,
+                  style: TextStyle(
+                    fontSize: 12,
+                    fontWeight: FontWeight.w500,
+                    letterSpacing: -0.5,
+                  ),
+                ),
+                SizedBox(height: 20),
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    Text(
-                      "Contain at least 1 uppercase letter, 8 characters, 1 number",
-                      textAlign: TextAlign.start,
-                      style: TextStyle(
-                        fontSize: 12,
-                        fontWeight: FontWeight.w500,
-                        letterSpacing: -0.5,
-                      ),
-                    ),
-                    SizedBox(height: 20),
-                    Row(
+                    // Padding(padding: EdgeInsets.only(right: 10)),
+                    checkBoxWidget(
+                        changeBG: widget.isRemember,
+                        check: widget.isRemember,
+                        onChange: (value) {
+                          widget.isRemember = !widget.isRemember;
+                          setState(() {});
+                        }),
+                    SizedBox(width: 10),
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Padding(padding: EdgeInsets.only(right: 10)),
-                        SizedBox(
-                          width: 24,
-                          height: 35,
-                          child: Checkbox(
-                              value: widget.isRemember,
-                              activeColor: ColorUtils.primaryColor,
-                              onChanged: (value) {
-                                widget.isRemember = !widget.isRemember;
-                                setState(() {});
-                              }),
+                        Text(
+                          "I have read & agree with the Terms & Condition and",
+                          style: TextStyle(
+                              fontWeight: FontWeight.w500, fontSize: 12),
                         ),
-                        SizedBox(width: 10),
-                        Column(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              "I have read & agree with the Terms & Condition and",
-                              style: TextStyle(
-                                  fontWeight: FontWeight.w500, fontSize: 12),
-                            ),
-                            Text("Privacy Policy",
-                                style: TextStyle(
-                                    fontWeight: FontWeight.w500, fontSize: 12))
-                          ],
-                        ),
+                        Text("Privacy Policy",
+                            style: TextStyle(
+                                fontWeight: FontWeight.w500, fontSize: 12))
                       ],
                     ),
-                    SizedBox(height: 40),
-                    PrimaryBtn(
-                        label: "Register",
-                        onTap: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => splashScreen()));
-                        }),
                   ],
                 ),
+                SizedBox(height: 40),
+                PrimaryBtn(
+                    label: "Register",
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => splashScreen()));
+                    }),
               ],
             ),
           ),

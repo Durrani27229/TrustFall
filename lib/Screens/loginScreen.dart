@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:loginpage/Screens/home.dart';
 import 'package:loginpage/Screens/registerAccount.dart';
 import 'package:loginpage/Screens/splash.dart';
 import 'package:loginpage/Utils/color_utils.dart';
@@ -160,7 +161,7 @@ class _loginScreenState extends State<loginScreen> {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => splashScreen()));
+                              builder: (context) => HomeScreen()));
                     }),
                 SizedBox(
                   height: 20,
