@@ -1,6 +1,10 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
+import 'package:loginpage/Screens/deleteAccount.dart';
 import 'package:loginpage/Utils/color_utils.dart';
 import 'package:loginpage/Widgets/checkIn.dart';
+import 'package:loginpage/Widgets/menuData.dart';
 
 class HomeScreen extends StatefulWidget {
   HomeScreen({super.key});
@@ -28,8 +32,18 @@ class HomeScreen extends StatefulWidget {
     {
       'date': "1st Aug , 2025",
       'time': "02:45 AM",
+    },
+    {
+      'date': "1st Aug , 2025",
+      'time': "02:45 AM",
+    },
+    {
+      'date': "1st Aug , 2025",
+      'time': "02:45 AM",
     }
   ];
+
+  final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
   bool toggle = false;
 
   @override
@@ -40,32 +54,122 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: widget.scaffoldKey,
+      drawer: Drawer(
+          backgroundColor: Colors.white,
+          width: double.infinity,
+          child: Column(children: [
+            Expanded(
+              child: ListView(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Container(
+                      height: 50,
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                        child: Row(
+                          children: [
+                            Image.asset(
+                              "assets/cancel.png",
+                              height: 44,
+                              width: 44,
+                            ),
+                            SizedBox(width: 10),
+                            Text(
+                              "Menu",
+                              style: TextStyle(
+                                  fontSize: 24,
+                                  fontWeight: FontWeight.bold,
+                                  color: ColorUtils.black),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                    child: Column(children: [
+                      MenuData(
+                        image: "assets/user1.png",
+                        title: "Manage Contacts",
+                      ),
+                      MenuData(
+                        image: "assets/schedule.png",
+                        title: "Manage Schedule",
+                      ),
+                      MenuData(
+                        image: "assets/subscription.png",
+                        title: "Manage Subscription",
+                      ),
+                      MenuData(
+                        image: "assets/setting.png",
+                        title: "Settings",
+                      ),
+                      MenuData(
+                        image: "assets/faq.png",
+                        title: "FAQs",
+                      ),
+                      MenuData(
+                        image: "assets/terms.png",
+                        title: "Terms & Condition",
+                      ),
+                      MenuData(
+                        image: "assets/privacy.png",
+                        title: "Privacy Policy",
+                      ),
+                      MenuData(
+                        image: "assets/trash.png",
+                        title: "Delete Account",
+                      ),
+                    ]),
+                  ),
+                ],
+              ),
+            ),
+            MenuData(
+              image: "assets/logout.png",
+              title: "Logout",
+            ),
+          ])),
       appBar: AppBar(
         leadingWidth: 80,
-        leading: Padding(
-            padding: const EdgeInsets.all(5.0),
-            child: Image.asset("assets/menuBtn.png", height: 24, width: 24)),
-        title: Row(
-          children: [
-            Image.asset("assets/profile.png", height: 45, width: 45),
-            SizedBox(width: 10),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  "Hello",
-                  style: TextStyle(color: ColorUtils.black),
-                ),
-                Text(
-                  "Baker Davis",
-                  style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
-                      color: ColorUtils.black),
-                )
-              ],
-            )
-          ],
+        leading: GestureDetector(
+          onTap: () {
+            widget.scaffoldKey.currentState?.openDrawer();
+          },
+          child: Padding(
+              padding: const EdgeInsets.all(5.0),
+              child: Image.asset("assets/menuBtn.png", height: 24, width: 24)),
+        ),
+        title: GestureDetector(
+          onTap: () {
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => DeleteAccount()));
+          },
+          child: Row(
+            children: [
+              Image.asset("assets/profile.png", height: 45, width: 45),
+              SizedBox(width: 10),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    "Hello",
+                    style: TextStyle(color: ColorUtils.black),
+                  ),
+                  Text(
+                    "Baker Davis",
+                    style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                        color: ColorUtils.black),
+                  )
+                ],
+              )
+            ],
+          ),
         ),
       ),
       body: Padding(

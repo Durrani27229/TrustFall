@@ -29,7 +29,7 @@ class ColorUtils {
   static Color lightBlue = const Color(0xff78B9FF);
   static Color lightBlack = const Color(0xff1b1a1d);
   static Color txtWhite = const Color(0xffE3E9ED);
-  static Color txtGrey = const Color(0xFF666666); 
+  static Color txtGrey = const Color(0xFF666666);
   static Color bgGrey = const Color(0xFF686868);
   static Color btnColor = const Color(0xff056DDC);
   static Color borderColor = const Color(0xFFE5E7EB);
@@ -48,7 +48,8 @@ class ColorUtils {
   static Color fawn = const Color(0xfff7c4a1);
   static Color grey = const Color(0xff6B7280);
   static Color txtColor = const Color(0xff292d32).withOpacity(0.8);
-  static Color field_background = Color(0xFFF2F2F2);
+  static Color field_background = const Color(0xFFF2F2F2);
   static Color card_background = Color(0xFF3C414E);
   static Color about_background = Color(0xFF151D2D);
+  static Color lightGreyish = Color(0xFFDADADA);
 }
