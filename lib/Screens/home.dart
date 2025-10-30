@@ -1,6 +1,5 @@
-import 'dart:ffi';
-
 import 'package:flutter/material.dart';
+import 'package:loginpage/Screens/MenuBar/manageContact.dart';
 import 'package:loginpage/Screens/deleteAccount.dart';
 import 'package:loginpage/Utils/color_utils.dart';
 import 'package:loginpage/Widgets/checkIn.dart';
@@ -70,10 +69,15 @@ class _HomeScreenState extends State<HomeScreen> {
                         padding: const EdgeInsets.symmetric(horizontal: 10.0),
                         child: Row(
                           children: [
-                            Image.asset(
-                              "assets/cancel.png",
-                              height: 44,
-                              width: 44,
+                            GestureDetector(
+                              onTap: () {
+                                widget.scaffoldKey.currentState?.closeDrawer();
+                              },
+                              child: Image.asset(
+                                "assets/cancel.png",
+                                height: 44,
+                                width: 44,
+                              ),
                             ),
                             SizedBox(width: 10),
                             Text(
@@ -94,6 +98,12 @@ class _HomeScreenState extends State<HomeScreen> {
                       MenuData(
                         image: "assets/user1.png",
                         title: "Manage Contacts",
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => ManageContact()));
+                        },
                       ),
                       MenuData(
                         image: "assets/schedule.png",
@@ -132,6 +142,7 @@ class _HomeScreenState extends State<HomeScreen> {
               image: "assets/logout.png",
               title: "Logout",
             ),
+            SizedBox(height: 20)
           ])),
       appBar: AppBar(
         leadingWidth: 80,

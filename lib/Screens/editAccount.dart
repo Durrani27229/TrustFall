@@ -44,28 +44,18 @@ class _EditAccountState extends State<EditAccount> {
                       ),
                     ),
                   ),
-                  Text(
-                    "My Account",
-                    style: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
-                        color: ColorUtils.black),
+                  Center(
+                    child: Text(
+                      "My Account",
+                      style: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                          color: ColorUtils.black),
+                    ),
                   ),
                   Container(
                     width: 44,
                     height: 44,
-                    decoration: BoxDecoration(
-                      color: ColorUtils.field_background,
-                      borderRadius: BorderRadius.circular(15),
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Image.asset(
-                        "assets/pen.png",
-                        width: 24,
-                        height: 24,
-                      ),
-                    ),
                   )
                 ],
               ),
@@ -73,16 +63,31 @@ class _EditAccountState extends State<EditAccount> {
             SizedBox(
               height: 50,
             ),
-            Center(
-                child: Container(
-              width: 154,
-              height: 154,
-              child: Image.asset(
-                "assets/davis.png",
-                width: 154,
-                height: 154,
-              ),
-            )),
+            Container(
+                height: 170,
+                child: Stack(
+                  children: [
+                    Container(
+                      width: 154,
+                      height: 154,
+                      child: Image.asset(
+                        "assets/davis.png",
+                        width: 154,
+                        height: 154,
+                      ),
+                    ),
+                    Positioned(
+                      left: 0,
+                      right: 0,
+                      bottom: -3,
+                      child: Image.asset(
+                        "assets/addIcon.png",
+                        width: 38,
+                        height: 38,
+                      ),
+                    )
+                  ],
+                )),
             SizedBox(height: 10),
             Center(
               child: Text(
