@@ -52,4 +52,5 @@ class ColorUtils {
   static Color card_background = Color(0xFF3C414E);
   static Color about_background = Color(0xFF151D2D);
   static Color lightGreyish = Color(0xFFDADADA);
+
 }

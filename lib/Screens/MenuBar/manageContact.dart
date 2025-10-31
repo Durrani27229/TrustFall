@@ -1,8 +1,47 @@
 import 'package:flutter/material.dart';
 import 'package:loginpage/Utils/color_utils.dart';
+import 'package:loginpage/Widgets/manageCont.dart';
 
 class ManageContact extends StatefulWidget {
-  const ManageContact({super.key});
+  // const ManageContact({super.key});
+
+  final List contacts = [
+    {
+      "alphabet": "D",
+      "category": "Primary",
+      "name": "Davis Bergson",
+    },
+    {
+      "alphabet": "T",
+      "category": "Primary",
+      "name": "Tatiana Carder",
+    },
+    {
+      "alphabet": "C",
+      "category": "Primary",
+      "name": "Chance Korsgaard",
+    },
+    {
+      "alphabet": "M",
+      "category": "Primary",
+      "name": "Marilyn Dokidis",
+    },
+    {
+      "alphabet": "M",
+      "category": "Primary",
+      "name": "Maren Curtis",
+    },
+    {
+      "alphabet": "C",
+      "category": "Primary",
+      "name": "Carter Saris",
+    },
+    {
+      "alphabet": "R",
+      "category": "Primary",
+      "name": "Ryan Rhiel Madsen",
+    },
+  ];
 
   @override
   State<ManageContact> createState() => _ManageContactState();
@@ -12,18 +51,23 @@ class _ManageContactState extends State<ManageContact> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        automaticallyImplyLeading: false,
-        centerTitle: true,
-        title: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Padding(
-              padding: const EdgeInsets.only(left: 15),
-              child: Image.asset("assets/back.png", height: 44, width: 44),
+      appBar: PreferredSize(
+        preferredSize: Size.fromHeight(70),
+        child: Padding(
+          padding: const EdgeInsets.only(top: 20),
+          child: AppBar(
+            // automaticallyImplyLeading: false,
+            leading: GestureDetector(
+              onTap: () {
+                Navigator.pop(context);
+              },
+              child: Padding(
+                padding: const EdgeInsets.only(left: 15),
+                child: Image.asset("assets/back.png", height: 44, width: 44),
+              ),
             ),
-            // SizedBox(width: 40),
-            Text(
+            centerTitle: true,
+            title: Text(
               "Manage Contact",
               style: TextStyle(
                 color: Colors.black,
@@ -31,35 +75,31 @@ class _ManageContactState extends State<ManageContact> {
                 fontWeight: FontWeight.bold,
               ),
             ),
-            Container(
-              width: 44,
-              height: 44,
-            )
-          ],
-        ),
-        actions: [
-          Padding(
-            padding: const EdgeInsets.only(right: 15),
-            child: Image.asset("assets/addBigIcon.png", height: 44, width: 44),
+            actions: [
+              Padding(
+                padding: const EdgeInsets.only(right: 15),
+                child:
+                    Image.asset("assets/addBigIcon.png", height: 42, width: 42),
+              ),
+            ],
           ),
-        ],
-      ),
+        ),
+      ),                 
+
       body: Container(
-        height: 60,
-        width: double.infinity,
-        margin: EdgeInsets.only(top: 15),
-        padding: EdgeInsets.symmetric(horizontal: 15),
-        decoration: BoxDecoration(
-          color: ColorUtils.field_background,
-        ),
-        child: Row(
-          children: [
-            CircleAvatar(
-              backgroundColor: Colors.blue,
-              radius: 20,
-            )
-          ],
-        ),
+        padding: EdgeInsets.symmetric(vertical: 20),
+        child: ListView.separated(
+            separatorBuilder: (context, index) => SizedBox(height: 5),
+            itemCount: widget.contacts.length,
+            itemBuilder: (context, index) {
+              // return ManageContactWidget("widget.contacts[index]",
+              //     "widget.contacts[index]", "widget.contacts[index]");
+              return ManageContactWidget(
+                widget.contacts[index]["alphabet"],
+                widget.contacts[index]["category"],
+                widget.contacts[index]["name"],
+              );
+            }),
       ),
     );
   }
