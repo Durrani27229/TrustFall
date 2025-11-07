@@ -92,7 +92,7 @@ class _MyScheduleState extends State<MySchedule> {
                 return Myschedule(
                   time: item["time"],
                   day: item["day"],
-                  toggle: item["toggle"] ?? false,
+                  initialToggle: item["toggle"] ?? false,
                 );
               },
             ),

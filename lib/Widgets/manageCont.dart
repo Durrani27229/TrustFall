@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:loginpage/Screens/MenuBar/editContact.dart';
 import 'package:loginpage/Utils/color_utils.dart';
 
 class ManageContactWidget extends StatefulWidget {
@@ -74,7 +75,15 @@ class _ManageContactWidgetState extends State<ManageContactWidget> {
                 Image.asset("assets/deleteSmallIcon.png",
                     height: 32, width: 32),
                 SizedBox(width: 6),
-                Image.asset("assets/editSmallIcon.png", height: 32, width: 32),
+                GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => EditContact())); 
+                    },
+                    child: Image.asset("assets/editSmallIcon.png",
+                        height: 32, width: 32)),
               ],
             ),
           ),

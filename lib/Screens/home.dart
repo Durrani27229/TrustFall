@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:loginpage/Screens/MenuBar/faq.dart';
 import 'package:loginpage/Screens/MenuBar/manageContact.dart';
+import 'package:loginpage/Screens/MenuBar/manageSubscription.dart';
+import 'package:loginpage/Screens/MenuBar/privacy.dart';
 import 'package:loginpage/Screens/MenuBar/schedule.dart';
+import 'package:loginpage/Screens/MenuBar/terms.dart';
 import 'package:loginpage/Screens/deleteAccount.dart';
 import 'package:loginpage/Utils/color_utils.dart';
 import 'package:loginpage/Widgets/checkIn.dart';
@@ -119,6 +123,12 @@ class _HomeScreenState extends State<HomeScreen> {
                       MenuData(
                         image: "assets/subscription.png",
                         title: "Manage Subscription",
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => ManageSubscription()));
+                        },
                       ),
                       MenuData(
                         image: "assets/setting.png",
@@ -127,14 +137,30 @@ class _HomeScreenState extends State<HomeScreen> {
                       MenuData(
                         image: "assets/faq.png",
                         title: "FAQs",
+                        onTap: () {
+                          Navigator.push(context,
+                              MaterialPageRoute(builder: (context) => Faq()));
+                        },
                       ),
                       MenuData(
                         image: "assets/terms.png",
                         title: "Terms & Condition",
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => TermsAndCondition()));
+                        },
                       ),
                       MenuData(
                         image: "assets/privacy.png",
                         title: "Privacy Policy",
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => PrivacyPolicy()));
+                        },
                       ),
                       MenuData(
                         image: "assets/trash.png",

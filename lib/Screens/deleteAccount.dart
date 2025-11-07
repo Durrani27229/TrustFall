@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:loginpage/Screens/delete.dart';
 import 'package:loginpage/Screens/editAccount.dart';
 import 'package:loginpage/Utils/color_utils.dart';
 import 'package:loginpage/Widgets/InputField.dart';
@@ -127,7 +128,12 @@ class _DeleteAccountState extends State<DeleteAccount> {
       ),
       bottomNavigationBar: Container(
         margin: EdgeInsets.only(bottom: 20, left: 20, right: 20),
-        child: PrimaryBtn(label: "Delete Account", onTap: () {}),
+        child: PrimaryBtn(
+            label: "Delete Account",
+            onTap: () {
+              Navigator.push(
+                  context, MaterialPageRoute(builder: (context) => Delete()));
+            }),
       ),
     );
   }

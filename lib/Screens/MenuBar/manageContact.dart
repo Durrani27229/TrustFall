@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:loginpage/Screens/MenuBar/addContact.dart';
+import 'package:loginpage/Screens/MenuBar/addContactRegister.dart';
 import 'package:loginpage/Utils/color_utils.dart';
 import 'package:loginpage/Widgets/manageCont.dart';
 
@@ -78,22 +80,26 @@ class _ManageContactState extends State<ManageContact> {
             actions: [
               Padding(
                 padding: const EdgeInsets.only(right: 15),
-                child:
-                    Image.asset("assets/addBigIcon.png", height: 42, width: 42),
+                child: GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => AddContacts()));
+                    },
+                    child: Image.asset("assets/addBigIcon.png",
+                        height: 42, width: 42)),
               ),
             ],
           ),
         ),
-      ),                 
-
+      ),
       body: Container(
         padding: EdgeInsets.symmetric(vertical: 20),
         child: ListView.separated(
             separatorBuilder: (context, index) => SizedBox(height: 5),
             itemCount: widget.contacts.length,
             itemBuilder: (context, index) {
-              // return ManageContactWidget("widget.contacts[index]",
-              //     "widget.contacts[index]", "widget.contacts[index]");
               return ManageContactWidget(
                 widget.contacts[index]["alphabet"],
                 widget.contacts[index]["category"],

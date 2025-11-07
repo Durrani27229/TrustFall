@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:loginpage/Screens/MenuBar/addContactRegister.dart';
 import 'package:loginpage/Screens/loginScreen.dart';
 import 'package:loginpage/Screens/splash.dart';
 import 'package:loginpage/Utils/color_utils.dart';
@@ -141,7 +142,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => splashScreen()));
+                              builder: (context) => AddContact()));
                     }),
               ],
             ),
