@@ -5,7 +5,9 @@ import 'package:loginpage/Screens/MenuBar/manageSubscription.dart';
 import 'package:loginpage/Screens/MenuBar/privacy.dart';
 import 'package:loginpage/Screens/MenuBar/schedule.dart';
 import 'package:loginpage/Screens/MenuBar/terms.dart';
+import 'package:loginpage/Screens/delete.dart';
 import 'package:loginpage/Screens/deleteAccount.dart';
+import 'package:loginpage/Screens/loginScreen.dart';
 import 'package:loginpage/Utils/color_utils.dart';
 import 'package:loginpage/Widgets/checkIn.dart';
 import 'package:loginpage/Widgets/menuData.dart';
@@ -46,6 +48,8 @@ class HomeScreen extends StatefulWidget {
       'time': "02:45 AM",
     }
   ];
+
+  bool checkIn = false;
 
   final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
   bool toggle = false;
@@ -165,15 +169,28 @@ class _HomeScreenState extends State<HomeScreen> {
                       MenuData(
                         image: "assets/trash.png",
                         title: "Delete Account",
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => Delete()));
+                        },
                       ),
                     ]),
                   ),
                 ],
               ),
             ),
-            MenuData(
-              image: "assets/logout.png",
-              title: "Logout",
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: MenuData(
+                image: "assets/logout.png",
+                title: "Logout",
+                onTap: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => loginScreen()));
+                },
+              ),
             ),
             SizedBox(height: 20)
           ])),
@@ -258,19 +275,27 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             SizedBox(height: 50),
             Center(
-              child: Container(
-                alignment: Alignment.center,
-                height: 184,
-                width: 184,
-                decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  color: ColorUtils.darkGrey,
+              child: GestureDetector(
+                onTap: () {
+                  setState(() {
+                    widget.checkIn = !widget.checkIn;
+                  });
+                },
+                child: Container(
+                  alignment: Alignment.center,
+                  height: 184,
+                  width: 184,
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    color:
+                        widget.checkIn ? ColorUtils.green : ColorUtils.darkGrey,
+                  ),
+                  child: Text("Check in",
+                      style: TextStyle(
+                          color: ColorUtils.white,
+                          fontSize: 24,
+                          fontWeight: FontWeight.bold)),
                 ),
-                child: Text("Check in",
-                    style: TextStyle(
-                        color: ColorUtils.white,
-                        fontSize: 24,
-                        fontWeight: FontWeight.bold)),
               ),
             ),
             SizedBox(height: 10),

@@ -10,15 +10,44 @@ class Faq extends StatefulWidget {
 }
 
 class _FaqState extends State<Faq> {
-  final List<String> faq = [
-    "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos, quae.",
-    "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos, quae.",
-    "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos, quae.",
-    "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos, quae."
+  int selectedIndex = 5;
+
+  List listOfFaqs = [
+    {
+      "title": "Lorem epsum",
+      "desc":
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat ",
+    },
+    {
+      "title": "Lorem epsum",
+      "desc":
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat ",
+    },
+    {
+      "title": "Lorem epsum",
+      "desc":
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat ",
+    },
+    {
+      "title": "Lorem epsum",
+      "desc":
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat ",
+    },
+    {
+      "title": "Lorem epsum",
+      "desc":
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat ",
+    },
   ];
-  String? selectedValue;
+
   @override
-  Widget build(BuildContext context) {
+
+/*************  ✨ Windsurf Command ⭐  *************/
+  /// Build a faq page
+  ///
+  /// This page will display a list of frequently asked questions with their answers.
+/*******  e2f92701-7ac9-4f41-951f-5556f4a5150a  *******/ Widget build(
+      BuildContext context) {
     return Scaffold(
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(70),
@@ -53,234 +82,61 @@ class _FaqState extends State<Faq> {
           padding: EdgeInsets.only(top: 40),
           child: Column(
             children: [
-//            =============== DropDown ================
-
-              DropdownButtonFormField2<String>(
-                isExpanded: true,
-                decoration: InputDecoration(
-                  // Add Horizontal padding using menuItemStyleData.padding so it matches
-                  // the menu padding when button's width is not specified.
-                  fillColor: ColorUtils.field_background,
-                  filled: true,
-                  contentPadding: const EdgeInsets.symmetric(
-                    vertical: 16,
-                  ),
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(22),
-                    borderSide: BorderSide.none,
-                  ),
-                  // Add more decoration..
-                ),
-                hint: Text(
-                  'Lorem Ispum',
-                  style: TextStyle(
-                      fontSize: 14,
-                      color: ColorUtils.darkBlack,
-                      fontWeight: FontWeight.normal),
-                ),
-                items: faq
-                    .map((item) => DropdownMenuItem<String>(
-                          value: item,
-                          child: Text(
-                            item,
-                            style: TextStyle(
-                                fontSize: 14,
-                                color: ColorUtils.darkBlack,
-                                fontWeight: FontWeight.normal),
-                          ),
-                        ))
-                    .toList(),
-                validator: (value) {
-                  if (value == null) {
-                    return 'Please select time.';
-                  }
-                  return null;
-                },
-                onChanged: (value) {
-                  //Do something when selected item is changed.
-                },
-                onSaved: (value) {
-                  selectedValue = value.toString();
-                },
-                buttonStyleData: const ButtonStyleData(
-                  height: 30,
-                  padding: EdgeInsets.only(right: 20),
-                ),
-                iconStyleData: const IconStyleData(
-                  icon: Icon(
-                    Icons.arrow_drop_down,
-                    color: Colors.black,
-                  ),
-                  iconSize: 30,
-                ),
-                dropdownStyleData: DropdownStyleData(
-                  // elevation: 0,
-                  offset: Offset(0, -5),
-                  padding: EdgeInsets.only(left: 0),
-
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(22),
-                    color: ColorUtils.field_background,
-                  ),
-                ),
-                menuItemStyleData: const MenuItemStyleData(
-                  padding: EdgeInsets.symmetric(horizontal: 20),
-                ),
-              ),
-
-              SizedBox(height: 20),
-
-              //  =============== DropDown ================
-
-              DropdownButtonFormField2<String>(
-                isExpanded: true,
-                decoration: InputDecoration(
-                  // Add Horizontal padding using menuItemStyleData.padding so it matches
-                  // the menu padding when button's width is not specified.
-                  fillColor: ColorUtils.field_background,
-                  filled: true,
-                  contentPadding: const EdgeInsets.symmetric(
-                    vertical: 16,
-                  ),
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(22),
-                    borderSide: BorderSide.none,
-                  ),
-                  // Add more decoration..
-                ),
-                hint: Text(
-                  'Lorem Ispum',
-                  style: TextStyle(
-                      fontSize: 14,
-                      color: ColorUtils.darkBlack,
-                      fontWeight: FontWeight.normal),
-                ),
-                items: faq
-                    .map((item) => DropdownMenuItem<String>(
-                          value: item,
-                          child: Text(
-                            item,
-                            style: TextStyle(
-                                fontSize: 14,
-                                color: ColorUtils.darkBlack,
-                                fontWeight: FontWeight.normal),
-                          ),
-                        ))
-                    .toList(),
-                validator: (value) {
-                  if (value == null) {
-                    return 'Please select time.';
-                  }
-                  return null;
-                },
-                onChanged: (value) {
-                  //Do something when selected item is changed.
-                },
-                onSaved: (value) {
-                  selectedValue = value.toString();
-                },
-                buttonStyleData: const ButtonStyleData(
-                  height: 30,
-                  padding: EdgeInsets.only(right: 20),
-                ),
-                iconStyleData: const IconStyleData(
-                  icon: Icon(
-                    Icons.arrow_drop_down,
-                    color: Colors.black,
-                  ),
-                  iconSize: 30,
-                ),
-                dropdownStyleData: DropdownStyleData(
-                  // elevation: 0,
-                  offset: Offset(0, -5),
-                  padding: EdgeInsets.only(left: 0),
-
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(22),
-                    color: ColorUtils.field_background,
-                  ),
-                ),
-                menuItemStyleData: const MenuItemStyleData(
-                  padding: EdgeInsets.symmetric(horizontal: 20),
-                ),
-              ),
-
-              SizedBox(height: 20),
-
-              //  =============== DropDown ================
-
-              DropdownButtonFormField2<String>(
-                isExpanded: true,
-                decoration: InputDecoration(
-                  // Add Horizontal padding using menuItemStyleData.padding so it matches
-                  // the menu padding when button's width is not specified.
-                  fillColor: ColorUtils.field_background,
-                  filled: true,
-                  contentPadding: const EdgeInsets.symmetric(
-                    vertical: 16,
-                  ),
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(22),
-                    borderSide: BorderSide.none,
-                  ),
-                  // Add more decoration..
-                ),
-                hint: Text(
-                  'Lorem Ispum',
-                  style: TextStyle(
-                      fontSize: 14,
-                      color: ColorUtils.darkBlack,
-                      fontWeight: FontWeight.normal),
-                ),
-                items: faq
-                    .map((item) => DropdownMenuItem<String>(
-                          value: item,
-                          child: Text(
-                            item,
-                            style: TextStyle(
-                                fontSize: 14,
-                                color: ColorUtils.darkBlack,
-                                fontWeight: FontWeight.normal),
-                          ),
-                        ))
-                    .toList(),
-                validator: (value) {
-                  if (value == null) {
-                    return 'Please select time.';
-                  }
-                  return null;
-                },
-                onChanged: (value) {
-                  //Do something when selected item is changed.
-                },
-                onSaved: (value) {
-                  selectedValue = value.toString();
-                },
-                buttonStyleData: const ButtonStyleData(
-                  height: 30,
-                  padding: EdgeInsets.only(right: 20),
-                ),
-                iconStyleData: const IconStyleData(
-                  icon: Icon(
-                    Icons.arrow_drop_down,
-                    color: Colors.black,
-                  ),
-                  iconSize: 30,
-                ),
-                dropdownStyleData: DropdownStyleData(
-                  // elevation: 0,
-                  offset: Offset(0, -5),
-                  padding: EdgeInsets.only(left: 0),
-
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(22),
-                    color: ColorUtils.field_background,
-                  ),
-                ),
-                menuItemStyleData: const MenuItemStyleData(
-                  padding: EdgeInsets.symmetric(horizontal: 20),
-                ),
-              ),                 
+              ListView.separated(
+                  shrinkWrap: true,
+                  itemBuilder: (context, index) {
+                    return GestureDetector(
+                      onTap: () {
+                        setState(() {
+                          if (selectedIndex == index) {
+                            selectedIndex = listOfFaqs.length + 1;
+                          } else {
+                            selectedIndex = index;
+                          }
+                        });
+                      },
+                      child: Container(
+                        padding:
+                            EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+                        decoration: BoxDecoration(
+                          color: ColorUtils.field_background,
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        child: Column(
+                          children: [
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Text(listOfFaqs[index]['title']),
+                                Image.asset(
+                                  selectedIndex == index
+                                      ? "assets/arrowup.png"
+                                      : "assets/arrowdown.png",
+                                  scale: 3,
+                                )
+                              ],
+                            ),
+                            selectedIndex == index
+                                ? Divider(
+                                    thickness: 1,
+                                  )
+                                : SizedBox(),
+                            selectedIndex == index
+                                ? Text(
+                                    listOfFaqs[index]['desc'],
+                                    style: TextStyle(
+                                        color: ColorUtils.black, fontSize: 14),
+                                  )
+                                : SizedBox(),
+                          ],
+                        ),
+                      ),
+                    );
+                  },
+                  separatorBuilder: (context, index) => SizedBox(
+                        height: 15,
+                      ),
+                  itemCount: listOfFaqs.length)
             ],
           ),
         ),

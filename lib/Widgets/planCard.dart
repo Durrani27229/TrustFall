@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:loginpage/Utils/color_utils.dart';
 
-Widget _buildPlanCard(String title, String price, {bool isPopular = false}) {
+Widget buildPlanCard(String title, String price, {bool isPopular = false}) {
   return Container(
     width: 292,
     decoration: BoxDecoration(

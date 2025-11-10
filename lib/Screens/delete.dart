@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:loginpage/Screens/splash.dart';
 import 'package:loginpage/Utils/color_utils.dart';
 import 'package:loginpage/Widgets/primaryBtn.dart';
 
@@ -69,7 +70,10 @@ class Delete extends StatelessWidget {
           children: [
             PrimaryBtn(
               label: "Yes,Delete Account",
-              onTap: () {},
+              onTap: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => splashScreen()));
+              },
               bgBackground: ColorUtils.red,
               textColor: ColorUtils.white,
             ),

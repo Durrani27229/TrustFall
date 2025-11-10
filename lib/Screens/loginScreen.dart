@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:loginpage/Screens/forgetPassword.dart';
 import 'package:loginpage/Screens/home.dart';
 import 'package:loginpage/Screens/registerAccount.dart';
 import 'package:loginpage/Screens/splash.dart';
@@ -145,10 +146,18 @@ class _loginScreenState extends State<loginScreen> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
-                    Text(
-                      "Forget Password?",
-                      style:
-                          TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => ForgetPassword()));
+                      },
+                      child: Text(
+                        "Forget Password?",
+                        style: TextStyle(
+                            fontSize: 14, fontWeight: FontWeight.w500),
+                      ),
                     ),
                   ],
                 ),

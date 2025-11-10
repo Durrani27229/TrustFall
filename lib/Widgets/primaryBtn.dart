@@ -26,7 +26,7 @@ class PrimaryBtn extends StatelessWidget {
           height: 57,
           decoration: BoxDecoration(
             color: bgBackground,
-            borderRadius: BorderRadius.circular(30),
+            borderRadius: BorderRadius.circular(22),
             border: Border.all(
               color: borderColor ?? Colors.transparent, // 👈 apply border color
               width: 1,
